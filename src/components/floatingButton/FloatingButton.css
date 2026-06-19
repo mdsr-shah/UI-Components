@@ -1,0 +1,64 @@
+.fab {
+  width: 55px;
+  height: 55px;
+
+  border-radius: 50%;
+  border: none;
+
+  color: white;
+  font-size: 24px;
+
+  cursor: pointer;
+
+  position: fixed;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  transition: 0.3s;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+}
+
+/* Positions */
+.fab-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.fab-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.fab-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.fab-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+/* Colors */
+.fab-primary {
+  background: royalblue;
+}
+
+.fab-success {
+  background: green;
+}
+
+.fab-danger {
+  background: crimson;
+}
+
+.fab-dark {
+  background: #333;
+}

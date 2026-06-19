@@ -1,0 +1,26 @@
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  margin: 5px 0;
+}
+
+.radio-wrapper input {
+  width: 16px;
+  height: 16px;
+
+  cursor: pointer;
+}
+
+.radio-label {
+  user-select: none;
+}
+
+.radio-wrapper input:disabled {
+  cursor: not-allowed;
+}

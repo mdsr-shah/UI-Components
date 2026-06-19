@@ -1,0 +1,72 @@
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  margin: 5px;
+
+  transition: 0.3s;
+}
+
+
+/* Primary */
+
+.btn-primary {
+  background: royalblue;
+  color: white;
+}
+
+
+/* Secondary */
+
+.btn-secondary {
+  background: gray;
+  color: white;
+}
+
+
+/* Success */
+
+.btn-success {
+  background: green;
+  color: white;
+}
+
+
+/* Danger */
+
+.btn-danger {
+  background: crimson;
+  color: white;
+}
+
+
+/* Outline */
+
+.btn-outline {
+  background: transparent;
+
+  border: 2px solid royalblue;
+
+  color: royalblue;
+}
+
+
+/* Disabled */
+
+.btn:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+
+/* Hover */
+
+.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
