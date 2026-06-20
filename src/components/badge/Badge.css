@@ -1,0 +1,45 @@
+.badge {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: white;
+
+  margin: 5px;
+}
+
+/* Primary */
+
+.badge-primary {
+  background: royalblue;
+}
+
+/* Success */
+
+.badge-success {
+  background: green;
+}
+
+/* Danger */
+
+.badge-danger {
+  background: crimson;
+}
+
+/* Warning */
+
+.badge-warning {
+  background: orange;
+}
+
+/* Dark */
+
+.badge-dark {
+  background: #333;
+}

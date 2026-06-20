@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "./components/Input/Input";
 import Button from "./components/button/Button";
 import Checkbox from "./components/checkbox/Checkbox";
@@ -12,6 +12,16 @@ import FileUpload from "./components/fileupload/FileUpload";
 import NumberInput from "./components/numberinput/NumberInput";
 import FloatingActionButton from "./components/floatingButton/FloatingButton";
 import Rating from "./components/rating/Rating";
+import Card from "./components/card/Card";
+import Alert from "./components/alert/Alert";
+import Badge from "./components/badge/Badge";
+import Avatar from "./components/avatar/Avatar";
+import Modal from "./components/modal/Modal";
+import Navbar from "./components/navbar/NavBar";
+import Tabs from "./components/tabs/Tabs";
+import Tooltip from "./components/tooltip/Tooltip";
+import Loader from "./components/loader/Loader";
+import Pagination from "./components/pagination/Pagination";
 
 function App() {
 
@@ -46,8 +56,80 @@ function App() {
    // Rating state
    const [rating, setRating] = useState(0);
 
+   // Modal State
+   const [open, setOpen] = useState(false);
+    const links = [
+      { label: "Home", path: "#" },
+      { label: "About", path: "#" },
+      { label: "Services", path: "#" },
+      { label: "Contact", path: "#" },
+  ];
+
+  // Tabs data
+   const tabData = [
+    {
+      label: "Home",
+      content: <p>Welcome to Home page</p>
+    },
+    {
+      label: "Profile",
+      content: <p>This is your Profile section</p>
+    },
+    {
+      label: "Settings",
+      content: <p>Manage your settings here</p>
+    }
+  ];
+
+  // Loader states
+  const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 3000);
+  // }, []);
+
+  // Pagination state
+   const [page, setPage] = useState(1);
+  const totalPages = 5;
+
   return (
     <>
+     <Navbar
+        logo="Navbar"
+        links={links}
+      />
+
+      <br/>
+      <hr/>
+
+       <h2>Tabs Example</h2>
+
+      <Tabs tabs={tabData} />
+
+    <br /><hr />
+     <h2>Pagination Example</h2>
+
+      <p>Current Page: {page}</p>
+
+      <Pagination
+        totalPages={totalPages}
+        currentPage={page}
+        onPageChange={(p) => setPage(p)}
+      />
+    <br /><hr />
+
+     <h2>Loader Example</h2>
+
+      {/* {loading ? (
+        <Loader size="large" color="primary" />
+      ) : (
+        <h3>Data Loaded Successfully ✅</h3>
+      )} */}
+      <Loader size="large" color="primary" />
+
+<br /><br /><hr />
     <h1>UI Components</h1>
     <br />
       <hr />
@@ -245,6 +327,127 @@ function App() {
       />
 
       <p>Your rating: {rating} / 5</p>
+
+      <br/>
+      <hr/>
+      <h2>Card</h2>
+       <Card
+        title="React UI Library"
+        image="https://picsum.photos/300/200"
+      >
+
+        <p>
+          Building reusable components using
+          pure React and CSS.
+        </p>
+
+      </Card>
+      
+      <br/>
+      <hr/>
+      <h2>Alert</h2>
+       <Alert
+        type="success"
+        message="Data saved successfully."
+      />
+
+      <Alert
+        type="error"
+        message="Something went wrong."
+      />
+
+      <Alert
+        type="warning"
+        message="Please check your input."
+      />
+
+      <Alert
+        type="info"
+        message="New update available."
+      />
+
+      <br/>
+      <hr/>
+      <h2>Badges</h2>
+        <Badge
+        text="New"
+        variant="primary"
+      />
+
+      <Badge
+        text="Success"
+        variant="success"
+      />
+
+      <Badge
+        text="Sale"
+        variant="warning"
+      />
+
+      <Badge
+        text="Premium"
+        variant="dark"
+      />
+
+      <Badge
+        text="99+"
+        variant="danger"
+      />
+
+      <br/>
+      <hr/>
+      <h2>Avatar</h2>
+       <Avatar
+        name="Mudassir Shah"
+        size="small"
+      />
+       <Avatar
+        src="https://i.pravatar.cc/150"
+        alt="Mudassir Shah"
+        size="medium"
+      />
+      <Avatar
+        name="React"
+        size="large"
+      />
+
+      <br/>
+      <hr/>
+      <h2>Modal</h2>
+      <button
+        onClick={() => setOpen(true)}
+      >
+        Open Modal
+      </button>
+
+      <Modal
+        isOpen={open}
+        title="React Modal"
+        onClose={() => setOpen(false)}
+      >
+
+        <p>
+          This is a modal component.
+        </p>
+
+      </Modal>
+     
+      <br /><hr/>
+
+    <h2>Tooltip</h2>
+     <Tooltip text="Click to submit form" position="top">
+        <Button variant="primary">
+          Submit
+        </Button>
+      </Tooltip>
+
+      <br />
+
+      <Tooltip text="Delete item" position="right">
+        <button>🗑 Delete</button>
+      </Tooltip>
+<br />
+<hr />
 
     </>
   );
