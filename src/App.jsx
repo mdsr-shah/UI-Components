@@ -22,6 +22,9 @@ import Tabs from "./components/tabs/Tabs";
 import Tooltip from "./components/tooltip/Tooltip";
 import Loader from "./components/loader/Loader";
 import Pagination from "./components/pagination/Pagination";
+import SearchBar from "./components/searchbar/Searchbar";
+import Breadcrumb from "./components/breadcrumb/Breadcrumb";
+import Animation from "./components/animations/Animations";
 
 function App() {
 
@@ -94,6 +97,36 @@ function App() {
    const [page, setPage] = useState(1);
   const totalPages = 5;
 
+  // Searchbar
+   const handleSearch = (value) => {
+    console.log(value);
+  };
+
+
+  // Breadcrumb
+   const pages = [
+
+    {
+      label: "Home",
+      path: "#",
+    },
+
+    {
+      label: "Products",
+      path: "#",
+    },
+
+    {
+      label: "Laptops",
+      path: "#",
+    },
+
+    {
+      label: "MacBook Pro",
+    },
+
+  ];
+
   return (
     <>
      <Navbar
@@ -107,6 +140,20 @@ function App() {
        <h2>Tabs Example</h2>
 
       <Tabs tabs={tabData} />
+
+    <br /><hr />
+    <h2>Search Bar</h2>
+     <SearchBar
+        placeholder="Search products..."
+        onSearch={handleSearch}
+      />
+    <br /><hr />
+    <h2>Breadcrumb</h2>
+     <Breadcrumb
+        items={pages}
+        separator=">"
+      />
+
 
     <br /><hr />
      <h2>Pagination Example</h2>
@@ -133,6 +180,43 @@ function App() {
     <h1>UI Components</h1>
     <br />
       <hr />
+      <h2>Animations</h2>
+
+          <Animation type="fade">
+        <h2>Fade</h2>
+      </Animation>
+
+      <br /><br />
+
+      <Animation type="slide">
+        <button>Slide</button>
+      </Animation>
+
+      <br /><br />
+
+      <Animation type="zoom">
+        <button>Zoom</button>
+      </Animation>
+
+      <br /><br />
+
+      <Animation type="bounce">
+        <button>Bounce</button>
+      </Animation>
+
+      <br /><br />
+
+      <Animation type="pulse">
+        <button>Pulse</button>
+      </Animation>
+
+      <br /><br />
+
+      <Animation type="shake">
+        <button>Shake</button>
+      </Animation>
+
+      <br /><hr />
 
     <h2>Buttons</h2>
       <Button variant="primary">
