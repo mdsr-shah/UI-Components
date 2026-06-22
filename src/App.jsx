@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from "react";
+import {Routes, Route} from "react-router-dom"
+
 import Input from "./components/Input/Input";
 import Button from "./components/button/Button";
 import Checkbox from "./components/checkbox/Checkbox";
@@ -25,6 +27,16 @@ import Pagination from "./components/pagination/Pagination";
 import SearchBar from "./components/searchbar/Searchbar";
 import Breadcrumb from "./components/breadcrumb/Breadcrumb";
 import Animation from "./components/animations/Animations";
+import Router  from "./components/router-dom/router";
+
+// Router DOM
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import NotFound from "./pages/NotFound";
+
+
 
 function App() {
 
@@ -133,6 +145,36 @@ function App() {
         logo="Navbar"
         links={links}
       />
+      <br />
+      <h2>Router Example</h2>
+        <Router/>
+      
+      <br /><hr />
+      <Navbar
+        logo="Router Example"
+        links={[
+          { label: "Home", path: "/" },
+          { label: "About", path: "/about" },
+          { label: "Products", path: "/products" },
+        ]}
+      />
+
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/products" element={<Products />} />
+
+        <Route
+          path="/products/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route path="*" element={<NotFound />} />
+
+      </Routes>
 
       <br/>
       <hr/>
@@ -532,7 +574,8 @@ function App() {
       </Tooltip>
 <br />
 <hr />
-
+      
+    
     </>
   );
 }
